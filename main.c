@@ -68,7 +68,7 @@ uint32_t banks_sc55[8] ={0x10000, 0x1BD00, 0x1DEC0, 0x20000, 0x2BD00, 0x2DEC0, 0
 #define INT24_MIN (0x7FFFFF * -1)
 #define BOOST_AMOUNT 0.0
 
-#define MKII
+//#define MKII
 
 #if defined(MKII)
 	#define CTRL_VER_ADDR 0x3D148
