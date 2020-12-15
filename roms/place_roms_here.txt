@@ -1,0 +1,15 @@
+You must have at least one set of SC55 wave roms and an SC55 control rom that match.
+Currently this has only been tested with two sets of roms:
+
+The MKI 1.21 roms named:
+
+roland_r15209363.ic23
+roland-gss.a_r15209276.ic28
+roland-gss.b_r15209277.ic27
+roland-gss.c_r15209281.ic26
+
+or the SCB (MKII) roms named:
+
+SCB-55_R15279828_(program).BIN
+R15209359_(samples1).BIN
+R15279813_(samples2).BIN
