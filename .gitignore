@@ -1,0 +1,10 @@
+FluidSynth
+midi
+waves
+output/*
+roms/*
+documents/*
+output.txt
+*.rom
+*.bin
+*.bat

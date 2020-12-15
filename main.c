@@ -11,10 +11,10 @@
 
 #ifdef __GNUC__
 	#define packed_struct struct __attribute__((__packed__))
-	#define path_div "/"
+	#define PATH_DIV "/"
 #else
 	#define packed_struct _Pragma("pack(1)") struct
-	#define path_div "\\"
+	#define PATH_DIV "\\"
 #endif
 
 #include "riff.h"
@@ -466,7 +466,7 @@ int8_t unscramble_byte(int8_t byte)
 
 bool decode_wave_rom(uint8_t *dec_buf)
 {
-	char *files_in[3] = {"roland-gss.a_r15209276.ic28", "roland-gss.b_r15209277.ic27", "roland-gss.c_r15209281.ic26"};
+	char *files_in[3] = {"roms"PATH_DIV"roland-gss.a_r15209276.ic28", "roms"PATH_DIV"roland-gss.b_r15209277.ic27", "roms"PATH_DIV"roland-gss.c_r15209281.ic26"};
 
 	uint8_t *enc_buf = calloc(1, 0x100000);
 
@@ -495,7 +495,7 @@ bool decode_wave_rom_scb(uint8_t *dec_buf)
 {
 	uint8_t *enc_buf = calloc(1, 0x200000);
 
-	FILE *f_in = fopen("R15209359_(samples1).BIN", "rb");
+	FILE *f_in = fopen("roms"PATH_DIV"R15209359_(samples1).BIN", "rb");
 
 	if (!f_in) {
 		printf("Unable to find wave roms. Results will be corrupt.\n");
@@ -515,7 +515,7 @@ bool decode_wave_rom_scb(uint8_t *dec_buf)
 	fwrite(dec_buf, 0x200000, 1, fo);
 	fclose (fo);
 
-	f_in = fopen("R15279813_(samples2).BIN", "rb");
+	f_in = fopen("roms"PATH_DIV"R15279813_(samples2).BIN", "rb");
 	if (!f_in) {
 		printf("Unable to find wave roms. Results will be corrupt.\n");
 		return false;
@@ -1306,9 +1306,9 @@ int32_t main (int32_t argc, char *argv)
 	struct synth *sc55 = calloc(1, sizeof(struct synth));
 
 	#if defined(MKII)
-		FILE *f = fopen("SCB-55_R15279828_(program).BIN", "rb");
+		FILE *f = fopen("roms"PATH_DIV"SCB-55_R15279828_(program).BIN", "rb");
 	#else
-		FILE *f = fopen("roland_r15209363.ic23", "rb");
+		FILE *f = fopen("roms"PATH_DIV"roland_r15209363.ic23", "rb");
 	#endif
 
 	//FILE *f = fopen("altered-part-tumpet.rom", "rb");
@@ -1373,7 +1373,7 @@ int32_t main (int32_t argc, char *argv)
 
 	struct RIFF *sf2 = NULL;
 	char soundfont_name[32] = {0};
-	snprintf(soundfont_name, 32, "output/AudioFabric-%05d.sf2", build);
+	snprintf(soundfont_name, 32, "output"PATH_DIV"AudioFabric-%05d.sf2", build);
 	riff_open(&sf2, "sfbk", soundfont_name);
 
 	// Soundfont general parameters LIST
