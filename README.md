@@ -26,7 +26,7 @@ To use the SCB-55 ROMs, uncomment MKII at the top.
 
 
 # Building
-Your compiler must be able to correctly handle packed structs, so if you are having difficulties with this, ensure that packed structs are working correctly. This has been primarily built in Linux, so windows builds may require extra attention.
+Your compiler must be able to correctly handle packed structs, so if you are having difficulties with this, ensure that packed structs are working correctly. Windows GCC compilers may require the `-mno-ms-bitfields` option to do handle these structs correctly. This project has been primarily built in Linux, so windows builds may require extra attention.
 
 To build, simply type:
 
