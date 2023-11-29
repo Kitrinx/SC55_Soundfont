@@ -1289,7 +1289,7 @@ uint32_t add_instrument(struct synth *sc55, struct sf_samples *s, uint32_t part_
 	}
 }
 
-int32_t main (int32_t argc, char *argv)
+int32_t main (int32_t argc, char **argv)
 {
 	FILE *vf = fopen("build.bin", "rb");
 	uint32_t build = 0;
